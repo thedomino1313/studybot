@@ -40,7 +40,7 @@ def write_user(user:str, user_data:dict):
     with open("./assets/users.json", 'w') as f:
         json.dump(users, f)
 
-def get_users() ->list[str]:
+def get_users() ->list:
     return list(read_users().keys())
 
 def add_test(name):

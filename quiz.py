@@ -10,17 +10,17 @@ def get_data(func):
             return func(user, *args, user_data, **kwargs)
     return get_user_data
 
-def get_current_guesses(user_data: dict) -> list[str]:
+def get_current_guesses(user_data: dict) -> list:
     return user_data["quizzes"][user_data["selection"]] if user_data["selection"] else []
 
-def set_current_guesses(user_data: dict, guesses: list[str]) -> dict:
+def set_current_guesses(user_data: dict, guesses: list) -> dict:
     if user_data["selection"]:
         user_data["quizzes"][user_data["selection"]] = guesses
         return user_data
     else:
         return []
 
-def get_remaining_words(user_data: dict) -> list[str]:
+def get_remaining_words(user_data: dict) -> list:
     return list(filter(lambda x: x not in get_current_guesses(user_data), get_answers(user_data["selection"])))
 
 def get_score(user_data: dict, intermediate:bool=True) -> str:
