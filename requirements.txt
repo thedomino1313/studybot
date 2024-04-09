@@ -1,0 +1,4 @@
+py-cord==2.5.0
+numpy==1.26.4
+opencv_python==4.9.0.80
+python-dotenv==1.0.1
