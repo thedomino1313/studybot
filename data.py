@@ -51,5 +51,16 @@ def add_test(name):
     with open("./assets/users.json", 'w') as f:
         json.dump(data, f)
 
+def update_tests():
+    data = read_users()
+    items = browse()
+    nums = {item: len(get_answers(item)) for item in items}
+    for user in data:
+        for item in items:
+            if item not in data[user]["quizzes"] or len(data[user]["quizzes"][item]) != nums[item]:
+                data[user]["quizzes"][item] = [""] * nums[item]
+    with open("./assets/users.json", 'w') as f:
+        json.dump(data, f)
+
 if __name__ == "__main__":
     write_user("test", get_user("test"))

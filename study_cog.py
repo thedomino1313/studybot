@@ -22,6 +22,7 @@ class StudyBot(discord.ext.commands.Cog):
             root (str): Link to the root folder
         """
         self.bot = bot
+        update_tests()
         
     async def _get_user_color(self, ctx: discord.ApplicationContext) -> discord.Colour:
         avatar_byte_array = await ctx.author.display_avatar.with_format("png").read()
