@@ -1,0 +1,15 @@
+True ribs (1-7)
+False ribs (8-12)
+Floating ribs (11, 12)
+Vertebra
+Costal margin
+Costal cartilage
+Intercostal spaces
+Sternum
+Xiphoid process
+Xiphisternal joint
+Body
+Sternal angle
+Manubrium
+Clavicular notch
+Jugular notch
