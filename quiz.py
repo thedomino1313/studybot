@@ -21,8 +21,12 @@ def set_current_guesses(user_data: dict, guesses: list) -> dict:
         return []
 
 def get_remaining_words(user_data: dict) -> list:
-    return list(filter(lambda x: x not in get_current_guesses(user_data), get_answers(user_data["selection"])))
-
+    ret_list = get_answers(user_data["selection"])
+    for guess in get_current_guesses(user_data):
+        if guess:
+            ret_list.pop(ret_list.index(guess))
+    return ret_list
+    
 def get_score(user_data: dict, intermediate:bool=True) -> str:
     if intermediate:
         return f"{sum(int(x == y) for x,y in zip(get_current_guesses(user_data), get_answers(user_data['selection'])))}/{len([x for x in get_current_guesses(user_data) if x != ''])}"
