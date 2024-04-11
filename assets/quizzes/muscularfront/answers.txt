@@ -1,0 +1,40 @@
+Temporalis
+Masseter
+Trapezius
+Deltoid
+Tricepts brachii
+Biceps brachii
+Brachialis
+Pronator teres
+Brachioradialis
+Flexor carpi radialis
+Palmaris longus
+Iliopsoas
+Pectineus
+Rectus femoris
+Vastus lateralis
+Vastus medialis
+Fibularis longus
+Extensor digitorum longus
+Tibialis anterior
+Soleus
+Gastrocnemius
+Gracilis
+Adductor longus
+Sartorius
+Tensor fascia lata
+Transversus abdominis
+Internal oblique
+External oblique
+Rectus abdominis
+Intercostals
+Serratus anterior
+Pectoralis major
+Pectoralis minor
+Sternocleidomastoid
+Sternohyoid
+Platysma
+Orbicularis oris
+Zygomaticus
+Orbicularis oculi
+Epicranius, frontal belly
