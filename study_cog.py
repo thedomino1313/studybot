@@ -134,6 +134,9 @@ class StudyBot(discord.ext.commands.Cog):
         )
         
         embed.set_author(name=ctx.author.name, icon_url=ctx.author.display_avatar.url)
-        for text in "`/clear <number (optional)>`: Clears the currently selected quiz. If <number> is provided, only that line will be cleared.\n`/guess <number> <term> <score (optional)>`: Guess the term for a number. Number and term both autofill. If <score> is true, your current score will be displayed.\n`/quiz <score (optional)>`: Displays the currently selected quiz. If <score> is true, the score will be displayed.\n`/select`: Cycles through all available quizzes. Hit the button with the checkmark to select a quiz.".split("\n"):
+        for text in ["- `/select`: Provides a paginated menu of all quizzes that you can test yourself on. To select a quiz to study, press the check mark button between the navigation buttons.",
+                     "- `/quiz <score (optional)>`: Shows the current state of the quiz you have selected.\n\t- Shows the image, all blanks and terms if you have filled in any, and your score (if the score parameter is set to True)",
+                     "- `/guess <number> <term>`: Tell the bot your guess for one of the numbered problems.\n\t- Autofilled responses appear for both `number` and `term`, showing all valid numbered questions for `number` and all remaining `terms` for term.",
+                     "- `/clear <number (optional)>`: Remove a guess from the quiz, or clear the whole quiz.\n\t- If a value for `number` is not provided, all answers to the quiz will be wiped.\n\t- If a value for `number` is provided, only the given number will be erased."]:
             embed.add_field(name="", value=text, inline=False)
         await ctx.send_response(embed=embed, ephemeral=True)
