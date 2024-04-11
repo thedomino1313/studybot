@@ -1,11 +1,11 @@
 # studybot
 StudyBot is a small side project that I made to help my girlfriend study for anatomy.
 
-## Disclaimer
-This cog works with `py-cord` (shown in `requirements.txt`). If you have other installations of discord libraries such as `discord.py`, the code may not work correctly.
+## Developer Notes
+- This cog works with `py-cord` (shown in `requirements.txt`). If you have other installations of discord libraries such as `discord.py`, the code may not work correctly.
+- When adding your own quizzes to the directory, the users.json file will not automatically have the new fields to represent them. Simply stop and restart the bot, it will take care of this automatically, do not try to do it manually.
 
 ## Files you need to pay attention to
-
 Each directory in `assets/quizzes` represents a "quiz".
 - The bot takes the name of the quiz from the name of the folder. 
 - The questions are part of `image.jpg`.
@@ -14,6 +14,7 @@ Each directory in `assets/quizzes` represents a "quiz".
 - `url.txt` contains a valid url to image.jpg.
   - This is unfortunately needed because of the way that Paginators work in PyCord, they will not accept local image files as sources.
   - The easiest way to get a url is to send the image once in Discord, and use the link that is generated.
+- The files must be named `answers.txt`, `image.jpg`, and `url.txt` for the code to behave properly.
 
 `bot.py` is a simple bot example file. If you want to add this suite of code to an already existing discord bot, you can use the below code to add the commands to it.
 ```python
@@ -28,7 +29,6 @@ bot.add_cog(StudyBot(bot))
   - The token needed to connect to your bot.
   - If you are connecting the cog to an existing bot as seen above, you do not need this parameter.
   
-
 `users.json` carries a cache of all users who have interacted with the Study Bot. This does not need to be created or modified by you, the bot will take care of creation if it cannot find the file.
 
 ## Commands
