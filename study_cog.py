@@ -74,7 +74,7 @@ class StudyBot(discord.ext.commands.Cog):
         confirm.callback = callback_func
         paginated_list.add_button(confirm)
         
-        await paginated_list.respond(ctx.interaction)
+        await paginated_list.respond(ctx.interaction, ephemeral=True)
     
     @discord.ext.commands.slash_command(name="quiz", guild_ids=[os.getenv("GUILD_ID")], description="Show the currently selected quiz")
     async def show_quiz(self, ctx: discord.ApplicationContext, score:bool=True):
@@ -124,3 +124,16 @@ class StudyBot(discord.ext.commands.Cog):
                     number: discord.Option(int, "Pick a number to clear! (Leave blank to clear all answers)", autocomplete=discord.utils.basic_autocomplete(autocomplete_numbers))=None): # type: ignore
         user = str(ctx.author.id)
         await ctx.send_response(clear(user, number=number), ephemeral=True)
+
+    @discord.ext.commands.slash_command(name="help", description="Show all useable commands")
+    async def help(self, ctx: discord.ApplicationContext):
+        user_color = await self._get_user_color(ctx)
+        embed = discord.Embed(
+            title=f"Commands List",
+            color=user_color,
+        )
+        
+        embed.set_author(name=ctx.author.name, icon_url=ctx.author.display_avatar.url)
+        for text in "`/clear <number (optional)>`: Clears the currently selected quiz. If <number> is provided, only that line will be cleared.\n`/guess <number> <term> <score (optional)>`: Guess the term for a number. Number and term both autofill. If <score> is true, your current score will be displayed.\n`/quiz <score>`: Displays the currently selected quiz. If <score> is true, the score will be displayed.\n`/select`: Cycles through all available quizzes. Hit the button with the checkmark to select a quiz.".split("\n"):
+            embed.add_field(name="", value=text, inline=False)
+        await ctx.send_response(embed=embed, ephemeral=True)
