@@ -69,9 +69,10 @@ def rename_tests(items: list):
         for user in data:
             data[user]["quizzes"][new] = data[user]["quizzes"][old]
             data[user]["quizzes"].pop(old)
+            if data[user]["selection"] == old: data[user]["selection"] = new
     with open("./assets/users.json", 'w') as f:
         json.dump(data, f)
 
 
 if __name__ == "__main__":
-    rename_tests([("skull1", "skull_side"), ("skull2", "skull_bottom"), ("skull3", "skull_front"), ("verteba", "vertebra_top"), ("muscularback", "muscular_back"), ("muscularfront", "muscular_front")])
+    pass
