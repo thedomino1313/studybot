@@ -62,5 +62,16 @@ def update_tests():
     with open("./assets/users.json", 'w') as f:
         json.dump(data, f)
 
+def rename_tests(items: list):
+    data = read_users()
+    for old, new in items:
+        os.rename(f"./assets/quizzes/{old}", f"./assets/quizzes/{new}")
+        for user in data:
+            data[user]["quizzes"][new] = data[user]["quizzes"][old]
+            data[user]["quizzes"].pop(old)
+    with open("./assets/users.json", 'w') as f:
+        json.dump(data, f)
+
+
 if __name__ == "__main__":
-    write_user("test", get_user("test"))
+    rename_tests([("skull1", "skull_side"), ("skull2", "skull_bottom"), ("skull3", "skull_front"), ("verteba", "vertebra_top"), ("muscularback", "muscular_back"), ("muscularfront", "muscular_front")])
