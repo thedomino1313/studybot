@@ -1,0 +1,25 @@
+Apex
+Facet for medial condyle of femur
+Surface for patellar ligament
+Facet for lateral condyle of femur
+Neck
+Greater trochanter
+Lateral condyle
+Lateral epicondyle
+Patellar surface
+Medial condyle
+Medial epicondyle
+Adductor tubercle
+Intercondylar fossa
+Popliteal surface
+Medial and lateral supracondylar lines
+Linea aspera
+Gluteal tuberosity
+Intertrochanteric line
+Lesser trochanter
+Head
+Fovea capitis
+Greater trochanter
+Intertrochanteric crest
+Lateral condyle
+Lateral epicondyle
