@@ -8,7 +8,7 @@ def read_users():
         return dict()
 
 def browse():
-    return os.listdir("./assets/quizzes")
+    return sorted(os.listdir("./assets/quizzes"))
 
 def get_answers(file: str):
     path = f"./assets/quizzes/{file}/answers.txt"
