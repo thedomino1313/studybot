@@ -35,6 +35,8 @@ bot.add_cog(StudyBot(bot))
 - `/select`: Provides the user with a paginated menu of all quizzes that the bot can see in `assets/quizzes`. To select a quiz to study, the user must simply press the check mark button between the navigation buttons.
 - `/quiz <score (optional)>`: Shows the user the current state of the quiz they are working on
   - Users can see the image, all questions and the answers if they have provided any, and their score (if the score parameter is set to True)
+- `/word_bank`: Shows the user all of the words that they have not guessed for their selected quiz.
+  - Created because Discord API autocomplete will only show a max of 25 terms, so without typing any letters you will not be able to see all items on some quizzes.
 - `/guess <number> <term>`: Users tell the bot their guess for one of the numbered problems.
   - Autofilled responses appear for both `number` and `term`, showing all valid numbered questions for `number` and all remaining `terms` for term.
     - This provides users with a word bank.
