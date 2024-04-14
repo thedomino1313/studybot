@@ -150,6 +150,7 @@ class StudyBot(discord.ext.commands.Cog):
         embed.set_author(name=ctx.author.name, icon_url=ctx.author.display_avatar.url)
         for text in ["- `/select`: Provides a paginated menu of all quizzes that you can test yourself on. To select a quiz to study, press the check mark button between the navigation buttons.",
                      "- `/quiz <score (optional)>`: Shows the current state of the quiz you have selected.\n\t- Shows the image, all blanks and terms if you have filled in any, and your score (if the score parameter is set to True)",
+                     "- `/word_bank`: Shows the user all of the words that they have not guessed for their selected quiz.\n\t- Created because Discord API autocomplete will only show a max of 25 terms, so without typing any letters you will not be able to see all items on some quizzes.",
                      "- `/guess <number> <term>`: Tell the bot your guess for one of the numbered problems.\n\t- Autofilled responses appear for both `number` and `term`, showing all valid numbered questions for `number` and all remaining `terms` for term.",
                      "- `/clear <number (optional)>`: Remove a guess from the quiz, or clear the whole quiz.\n\t- If a value for `number` is not provided, all answers to the quiz will be wiped.\n\t- If a value for `number` is provided, only the given number will be erased."]:
             embed.add_field(name="", value=text, inline=False)
