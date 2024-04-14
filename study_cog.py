@@ -101,7 +101,7 @@ class StudyBot(discord.ext.commands.Cog):
         return list(range(1, 2+len(get_current_guesses(get_user(str(ctx.interaction.user.id))))))
 
     async def autocomplete_guesses(ctx: discord.AutocompleteContext):
-        return sorted(get_remaining_words(get_user(str(ctx.interaction.user.id))))
+        return get_remaining_words(get_user(str(ctx.interaction.user.id)))
 
     @discord.ext.commands.slash_command(name="guess", guild_ids=[os.getenv("GUILD_ID")], description="Show the currently selected quiz")
     async def guess(self, ctx: discord.ApplicationContext,
@@ -125,6 +125,20 @@ class StudyBot(discord.ext.commands.Cog):
         user = str(ctx.author.id)
         await ctx.send_response(clear(user, number=number), ephemeral=True)
 
+    @discord.ext.commands.slash_command(name="word_bank", guild_ids=[os.getenv("GUILD_ID")], description="Displays your current word bank")
+    async def word_bank(self, ctx: discord.ApplicationContext):
+        user_color = await self._get_user_color(ctx)
+        embed = discord.Embed(
+            title=f"Word Bank",
+            color=user_color,
+        )
+        
+        embed.set_author(name=ctx.author.name, icon_url=ctx.author.display_avatar.url)
+        
+        embed.add_field(name="", value="\n".join(get_remaining_words(get_user(str(ctx.interaction.user.id)))))
+
+        await ctx.send_response(embed=embed, ephemeral=True)
+    
     @discord.ext.commands.slash_command(name="help", guild_ids=[os.getenv("GUILD_ID")], description="Show all useable commands")
     async def help(self, ctx: discord.ApplicationContext):
         user_color = await self._get_user_color(ctx)

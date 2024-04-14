@@ -25,7 +25,7 @@ def get_remaining_words(user_data: dict) -> list:
     for guess in get_current_guesses(user_data):
         if guess:
             ret_list.pop(ret_list.index(guess))
-    return ret_list
+    return sorted(ret_list)
     
 def get_score(user_data: dict, intermediate:bool=True) -> str:
     if intermediate:
